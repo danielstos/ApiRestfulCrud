@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+requests = "*"
+ipdb = "*"
+
+[packages]
+flask = "*"
+flask-sqlalchemy = "*"
+flask-migrate = "*"
+db-sqlite3 = "*"
+mysqlclient = "*"
+flask-marshmallow = "*"
+marshmallow = "*"
+marshmallow-sqlalchemy = "*"
+sqlalchemy = "*"
+
+[requires]
+python_version = "3.8"
