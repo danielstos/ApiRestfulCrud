@@ -10,13 +10,13 @@ def mostrar():
     result = Movie.query.all()
     return ms.jsonify(result),200
 
-@bp_movies.route('/deletar/<identificador>', methods=['GET'])
+@bp_movies.route('/deletar/<identificador>', methods=['DELETE'])
 def deletar(identificador):
     Movie.query.filter(Movie.id == identificador).delete()
     current_app.db.session.commit()
     return jsonify('Deletado!!!')
 
-@bp_movies.route('/modificar/<identificador>', methods=['POST'])
+@bp_movies.route('/modificar/<identificador>', methods=['PUT'])
 def modificar(identificador):
     query = Movie.query.filter(Movie.id == identificador)
     query.update(request.json)
