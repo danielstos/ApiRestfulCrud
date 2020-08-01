@@ -6,6 +6,7 @@ verify_ssl = true
 [dev-packages]
 requests = "*"
 ipdb = "*"
+pylint = "*"
 
 [packages]
 flask = "*"
@@ -13,10 +14,10 @@ flask-sqlalchemy = "*"
 flask-migrate = "*"
 db-sqlite3 = "*"
 mysqlclient = "*"
-flask-marshmallow = "*"
 marshmallow = "*"
 marshmallow-sqlalchemy = "*"
 sqlalchemy = "*"
+flask-marshmallow = "0.11.0"
 
 [requires]
 python_version = "3.8"

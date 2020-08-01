@@ -1,4 +1,14 @@
 
+# ApiRestfulCrud
+
+ Experiência com um crud usando flask e suas ferramentas
+
+
+- Flask
+- flask_sqlalchemy
+- flask_migrate
+- flask_marshmallow
+- marshmallow_sqlalchemy
 
 ## Como rodar esse projeto
 
@@ -13,14 +23,6 @@ SET FLASK_ENV=Development
 SET FLASK_DEBUG=True
 ```
 
-## Experiência com um crud usando flask e suas ferramentas
-```sh
-Flask
-flask_sqlalchemy
-flask_migrate
-flask_marshmallow
-marshmallow_sqlalchemy
-```
 ## Como rodar esse projeto
 ```sh
 export FLASK_APP=app

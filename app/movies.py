@@ -1,4 +1,4 @@
-from flask import Blueprint,current_app,request
+from flask import Blueprint,current_app,request,jsonify
 from .model import Movie
 from .serealizer import MovieSchema
 
@@ -10,21 +10,23 @@ def mostrar():
     result = Movie.query.all()
     return ms.jsonify(result),200
 
-@bp_movies.route('/deletar', methods=['GET'])
+@bp_movies.route('/deletar/<identificador>', methods=['GET'])
+def deletar(identificador):
+    Movie.query.filter(Movie.id == identificador).delete()
+    current_app.db.session.commit()
+    return jsonify('Deletado!!!')
 
-def deletar():
-    ...
-
-@bp_movies.route('/modificar', methods=['POST'])
-
-def modificar():
-    ...
+@bp_movies.route('/modificar/<identificador>', methods=['POST'])
+def modificar(identificador):
+    query = Movie.query.filter(Movie.id == identificador)
+    query.update(request.json)
+    current_app.db.session.commit() 
+    return ms.jsonify(query.first()) 
 
 @bp_movies.route('/cadastrar', methods=['POST'])
-
 def cadastrar():
     ms = MovieSchema()
-    movie,error = ms.load(request.json)
+    movie = ms.load(request.json)
     current_app.db.session.add(movie)
     current_app.db.session.commit()
-    return ms.jsonify(movie), 201
+    return ms.jsonify(movie), 201 
